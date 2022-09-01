@@ -22,5 +22,5 @@ spec:
               apiVersion: argoproj.io/v1alpha1
               kind: Workflow
               metadata:
-                name: build-container-image-fpkx8
+                name: build-container-image-tmkd6
                 namespace: argo

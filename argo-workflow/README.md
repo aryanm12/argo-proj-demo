@@ -58,3 +58,6 @@ kubectl create secret docker-registry regcred --from-literal="config.json={\"aut
 -------------------------------------------------------
 
 argo cluster-template create -n argo argo-workflow/workflow-templates/container-image.yaml
+
+
+# For deploying the workflow, refer the project specific repo e.g: dotnet-argo-demo
