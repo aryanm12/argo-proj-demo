@@ -28,3 +28,4 @@ argoPass=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=
 nodePort=$(kubectl get svc -n argocd argocd-server -o jsonpath="{.spec.ports[1].nodePort}")
 
 argocd login --insecure localhost:$nodePort --username admin --password $argoPass
+
