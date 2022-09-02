@@ -41,8 +41,8 @@ kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-
 kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/master/examples/rbac/workflow-rbac.yaml
 
 
-Create Workflow Sensor:
-------------------------
+# To trigger a specific workflow create a sensor in the project specific repo e.g: dotnet-argo-demo
+
 kubectl apply -n argo-events -f argo-events/sensor-webhook-1.yaml
 
 Use either Curl or Postman to send a post request to the http://localhost:<noeport>/example.
