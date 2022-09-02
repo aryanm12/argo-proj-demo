@@ -23,13 +23,18 @@ kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-
 Deploy the default event source:
 --------------------------------
 
-kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/event-sources/webhook.yaml
+kubectl apply -n argo-events -f webhook-dotnet.yaml
+kubectl apply -n argo-events -f webhook-java.yaml
 
 
 Patch the webhook service:
 ---------------------------
 
-kubectl patch svc webhook-eventsource-svc -n argo-events -p '{"spec": {"type": "NodePort"}}'
+kubectl patch svc webhook-java-eventsource-svc -n argo-events -p '{"spec": {"
+type": "NodePort"}}'
+
+kubectl patch svc webhook-dotnet-eventsource-svc -n argo-events -p '{"spec":
+{"type": "NodePort"}}'
 
 
 Create a service account with RBAC settings to allow the sensor to trigger workflows, and allow workflows to function.
@@ -42,10 +47,3 @@ kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-
 
 
 # To trigger a specific workflow create a sensor in the project specific repo e.g: dotnet-argo-demo
-
-kubectl apply -n argo-events -f argo-events/sensor-webhook-1.yaml
-
-Use either Curl or Postman to send a post request to the http://localhost:<noeport>/example.
----------------------------------------------------------------------------------------------
-
-curl -d '{"message":"this is my first webhook"}' -H "Content-Type: application/json" -X POST http://localhost:30899/example
