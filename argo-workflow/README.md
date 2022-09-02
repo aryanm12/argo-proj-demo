@@ -50,7 +50,7 @@ argo version
 # This needs to be mounted as `$DOCKER_CONFIG/config.json`. To do this, you'll need to create a secret as follows:
 
 export DOCKER_USERNAME=aryanmohan
-export DOCKER_TOKEN=dckr_pat_R4B6AbK6MK-OM6ngtND7x5vs8iE
+export DOCKER_TOKEN=xxxxxxxxxxxxxxxxxxx
 kubectl create secret docker-registry regcred --from-literal="config.json={\"auths\": {\"https://index.docker.io/v1/\": {\"auth\": \"$(echo -n $DOCKER_USERNAME:$DOCKER_TOKEN|base64)\"}}}" -n argo
 
 
