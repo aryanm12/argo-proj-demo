@@ -8,6 +8,7 @@ spec:
     inputs:
       parameters:
       - name: app_repo
+      - name: context_sub_path
       - name: container_image
       - name: container_tag
     container:
@@ -16,7 +17,7 @@ spec:
       args:
       - --dockerfile=Dockerfile
       - --context={{inputs.parameters.app_repo}}
-      - --context-sub-path=src
+      - --context-sub-path={{inputs.parameters.context_sub_path}}
       - --destination={{inputs.parameters.container_image}}:{{inputs.parameters.container_tag}}
       volumeMounts:
         - name: kaniko-secret
